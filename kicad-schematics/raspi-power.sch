@@ -1,0 +1,298 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:special
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:raspi-power-cache
+EELAYER 27 0
+EELAYER END
+$Descr User 8661 5512
+encoding utf-8
+Sheet 1 1
+Title "RaspiPowerController"
+Date "4 jan 2015"
+Rev "1"
+Comp "Salvatore Carotenuto ( StartupSolutions / OpenMakersItaly )"
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L ATTINY13-P IC1
+U 1 1 54A95A5E
+P 3800 2450
+F 0 "IC1" H 3000 2850 40  0000 C CNN
+F 1 "ATTINY13-P" H 4450 2050 40  0000 C CNN
+F 2 "DIP8" H 4450 2450 35  0000 C CIN
+F 3 "~" H 3000 2800 60  0000 C CNN
+	1    3800 2450
+	-1   0    0    -1  
+$EndComp
+$Comp
+L 7805 U1
+U 1 1 54A95ADC
+P 1550 2250
+F 0 "U1" H 1700 2054 60  0000 C CNN
+F 1 "LF33CDT" H 1550 2450 60  0000 C CNN
+F 2 "~" H 1550 2250 60  0000 C CNN
+F 3 "~" H 1550 2250 60  0000 C CNN
+	1    1550 2250
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C2
+U 1 1 54A95C1F
+P 1150 2400
+F 0 "C2" H 1150 2500 40  0000 L CNN
+F 1 "0.1uF" H 1156 2315 40  0000 L CNN
+F 2 "~" H 1188 2250 30  0000 C CNN
+F 3 "~" H 1150 2400 60  0000 C CNN
+	1    1150 2400
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C1
+U 1 1 54A95C6C
+P 850 2400
+F 0 "C1" H 850 2500 40  0000 L CNN
+F 1 "10uF" H 856 2315 40  0000 L CNN
+F 2 "~" H 888 2250 30  0000 C CNN
+F 3 "~" H 850 2400 60  0000 C CNN
+	1    850  2400
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C3
+U 1 1 54A95D1C
+P 1950 2400
+F 0 "C3" H 1950 2500 40  0000 L CNN
+F 1 "0.1uF" H 1956 2315 40  0000 L CNN
+F 2 "~" H 1988 2250 30  0000 C CNN
+F 3 "~" H 1950 2400 60  0000 C CNN
+	1    1950 2400
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C4
+U 1 1 54A95D25
+P 2250 2400
+F 0 "C4" H 2250 2500 40  0000 L CNN
+F 1 "10uF" H 2256 2315 40  0000 L CNN
+F 2 "~" H 2288 2250 30  0000 C CNN
+F 3 "~" H 2250 2400 60  0000 C CNN
+	1    2250 2400
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 54A95D89
+P 1550 2700
+F 0 "#PWR?" H 1550 2700 30  0001 C CNN
+F 1 "GND" H 1550 2630 30  0001 C CNN
+F 2 "" H 1550 2700 60  0000 C CNN
+F 3 "" H 1550 2700 60  0000 C CNN
+	1    1550 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L MOSFET_P Q1
+U 1 1 54A95DF1
+P 6100 2500
+F 0 "Q1" H 6100 2690 60  0000 R CNN
+F 1 "MOSFET_P" H 6100 2320 60  0000 R CNN
+F 2 "~" H 6100 2500 60  0000 C CNN
+F 3 "~" H 6100 2500 60  0000 C CNN
+	1    6100 2500
+	1    0    0    1   
+$EndComp
+$Comp
+L R R1
+U 1 1 54A95EE8
+P 5650 2500
+F 0 "R1" V 5730 2500 40  0000 C CNN
+F 1 "220ohm" V 5657 2501 40  0000 C CNN
+F 2 "~" V 5580 2500 30  0000 C CNN
+F 3 "~" H 5650 2500 30  0000 C CNN
+	1    5650 2500
+	0    1    1    0   
+$EndComp
+$Comp
+L +5V #PWR?
+U 1 1 54A95F52
+P 6200 1850
+F 0 "#PWR?" H 6200 1940 20  0001 C CNN
+F 1 "+5V" H 6200 1940 30  0000 C CNN
+F 2 "" H 6200 1850 60  0000 C CNN
+F 3 "" H 6200 1850 60  0000 C CNN
+	1    6200 1850
+	1    0    0    -1  
+$EndComp
+Text GLabel 6450 2700 2    60   Input ~ 0
+RaspberryPi Power (+5V)
+Wire Wire Line
+	1150 2200 850  2200
+Wire Wire Line
+	1950 2200 2800 2200
+Wire Wire Line
+	850  2600 2800 2600
+Wire Wire Line
+	1550 2500 1550 2700
+Connection ~ 1550 2600
+Connection ~ 2250 2200
+Wire Wire Line
+	2800 2600 2800 2700
+Connection ~ 2250 2600
+Wire Wire Line
+	5400 2500 4800 2500
+Wire Wire Line
+	6450 2700 6200 2700
+$Comp
+L R R2
+U 1 1 54A9601C
+P 5500 3150
+F 0 "R2" V 5580 3150 40  0000 C CNN
+F 1 "220ohm" V 5507 3151 40  0000 C CNN
+F 2 "~" V 5430 3150 30  0000 C CNN
+F 3 "~" H 5500 3150 30  0000 C CNN
+	1    5500 3150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4800 2600 5500 2600
+Wire Wire Line
+	5500 2600 5500 2900
+$Comp
+L LED D1
+U 1 1 54A96057
+P 5500 3600
+F 0 "D1" H 5500 3700 50  0000 C CNN
+F 1 "POWER LED" H 5500 3500 50  0000 C CNN
+F 2 "~" H 5500 3600 60  0000 C CNN
+F 3 "~" H 5500 3600 60  0000 C CNN
+	1    5500 3600
+	0    -1   1    0   
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 54A9607A
+P 5500 4150
+F 0 "#PWR?" H 5500 4150 30  0001 C CNN
+F 1 "GND" H 5500 4080 30  0001 C CNN
+F 2 "" H 5500 4150 60  0000 C CNN
+F 3 "" H 5500 4150 60  0000 C CNN
+	1    5500 4150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5500 3800 5500 4150
+Text GLabel 6450 1400 2    60   Input ~ 0
+RaspberryPi Request Shutdown
+Text GLabel 6450 1550 2    60   Input ~ 0
+RaspberryPi Boot Status
+Wire Wire Line
+	4800 2400 5250 2400
+Wire Wire Line
+	5250 2400 5250 1400
+Wire Wire Line
+	5250 1400 6450 1400
+Wire Wire Line
+	4800 2300 5350 2300
+Wire Wire Line
+	5350 2300 5350 1550
+Wire Wire Line
+	5350 1550 6450 1550
+Wire Wire Line
+	6200 1850 6200 2300
+$Comp
+L SW_PUSH SW1
+U 1 1 54A96290
+P 4950 3200
+F 0 "SW1" H 5100 3310 50  0000 C CNN
+F 1 "POWER SWITCH" H 4950 3120 50  0000 C CNN
+F 2 "~" H 4950 3200 60  0000 C CNN
+F 3 "~" H 4950 3200 60  0000 C CNN
+	1    4950 3200
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4950 2200 4950 2900
+$Comp
+L R R3
+U 1 1 54A962E1
+P 4950 3750
+F 0 "R3" V 5030 3750 40  0000 C CNN
+F 1 "1K" V 4957 3751 40  0000 C CNN
+F 2 "~" V 4880 3750 30  0000 C CNN
+F 3 "~" H 4950 3750 30  0000 C CNN
+	1    4950 3750
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR?
+U 1 1 54A96328
+P 4950 4150
+F 0 "#PWR?" H 4950 4150 30  0001 C CNN
+F 1 "GND" H 4950 4080 30  0001 C CNN
+F 2 "" H 4950 4150 60  0000 C CNN
+F 3 "" H 4950 4150 60  0000 C CNN
+	1    4950 4150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4950 4000 4950 4150
+$Comp
+L +5V #PWR?
+U 1 1 54A96357
+P 850 1800
+F 0 "#PWR?" H 850 1890 20  0001 C CNN
+F 1 "+5V" H 850 1890 30  0000 C CNN
+F 2 "" H 850 1800 60  0000 C CNN
+F 3 "" H 850 1800 60  0000 C CNN
+	1    850  1800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	850  2200 850  1800
+$Comp
+L +3.3V #PWR?
+U 1 1 54A96377
+P 2250 1950
+F 0 "#PWR?" H 2250 1910 30  0001 C CNN
+F 1 "+3.3V" H 2250 2060 30  0000 C CNN
+F 2 "" H 2250 1950 60  0000 C CNN
+F 3 "" H 2250 1950 60  0000 C CNN
+	1    2250 1950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2250 1950 2250 2200
+Wire Wire Line
+	4800 2200 4950 2200
+$EndSCHEMATC
